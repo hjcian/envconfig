@@ -2,6 +2,7 @@
     - [Installation](#installation)
     - [Usage](#usage)
     - [Features](#features)
+    - [TODO](#todo)
     - [Contributing](#contributing)
 
 
@@ -46,6 +47,11 @@ public class Program
 - Boolean defaults: Use true or false for booleans.
 - Numeric defaults: Supply a numeric default, like double.
 - Override with environment variables: If set, the environment value overrides the default.
+
+## TODO
+- [ ] Add support for numeric types (int, float, etc.)
+- [ ] Publish to NuGet
+
 
 ## Contributing
 Feel free to open pull requests or issues to improve the library. You’re welcome to suggest enhancements, report bugs, or contribute documentation.
