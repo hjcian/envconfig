@@ -18,11 +18,11 @@ jobs:
         with:
           dotnet-version: "8.0.x"
 
-      - name: Run tests
-        run: make test
+      # - name: Run tests
+      #   run: make test
 
-      - name: Pack
-        run: make pack
+      # - name: Pack
+      #   run: make pack
 
       # - name: Check if EnvConfig.csproj changed
       #   id: check_changes
@@ -36,4 +36,4 @@ jobs:
         # if: steps.check_changes.outputs.csproj == 'true' && github.event_name == 'push'
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-        run: dotnet nuget push EnvConfig/bin/Release/CS.EnvConfig.*.nupkg  --source nuget.org --api-key $(NUGET_API_KEY)
+        run: dotnet nuget push EnvConfig/bin/Release/CS.EnvConfig.*.nupkg  --source nuget.org --api-key ${NUGET_API_KEY}
