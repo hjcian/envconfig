@@ -12,7 +12,6 @@ pack:
 NUGET_API_KEY ?=
 
 push:
-    @echo "Using API Key: $(if $(NUGET_API_KEY),有值,沒有值)"
 	dotnet nuget push \
 	EnvConfig/bin/Release/CS.EnvConfig.0.0.2.nupkg \
 	--source nuget.org \
