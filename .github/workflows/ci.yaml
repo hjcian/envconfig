@@ -36,8 +36,4 @@ jobs:
         # if: steps.check_changes.outputs.csproj == 'true' && github.event_name == 'push'
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-        run: |
-          dotnet nuget push \
-          EnvConfig/bin/Release/CS.EnvConfig.*.nupkg \
-          --source nuget.org \
-          --api-key $(NUGET_API_KEY)
+        run: dotnet nuget push EnvConfig/bin/Release/CS.EnvConfig.*.nupkg  --source nuget.org --api-key $(NUGET_API_KEY)
