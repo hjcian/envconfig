@@ -11,6 +11,7 @@ public sealed class EnvVarAttribute : Attribute
     public bool? DefaultBoolValue { get; }
 
     public double? DefaultDoubleValue { get; }
+    public int? DefaultIntValue { get; }
 
     public EnvVarAttribute(string key, string defaultValue)
     {
@@ -28,6 +29,11 @@ public sealed class EnvVarAttribute : Attribute
     {
         Key = key;
         DefaultDoubleValue = defaultValue;
+    }
+    public EnvVarAttribute(string key, int defaultValue)
+    {
+        Key = key;
+        DefaultIntValue = defaultValue;
     }
 }
 
@@ -57,23 +63,34 @@ public class EnvConfig
                 }
                 else if (prop.PropertyType == typeof(double) || prop.PropertyType == typeof(double?))
                 {
-                    if (string.IsNullOrEmpty(envValue))
+                    var numericValue = attr.DefaultDoubleValue;
+                    if (!string.IsNullOrEmpty(envValue) && double.TryParse(envValue, out double result))
                     {
-                        envValue = attr.DefaultDoubleValue.ToString();
+                        numericValue = result;
                     }
-                    prop.SetValue(instance, double.Parse(envValue));
+                    prop.SetValue(instance, numericValue);
+                }
+                else if (prop.PropertyType == typeof(int) || prop.PropertyType == typeof(int?))
+                {
+                    var intValue = attr.DefaultIntValue;
+                    if (!string.IsNullOrEmpty(envValue) && int.TryParse(envValue, out int result))
+                    {
+                        intValue = result;
+                    }
+                    prop.SetValue(instance, intValue);
                 }
                 else
                 {
-                    if (string.IsNullOrEmpty(envValue))
+                    // Finally, assume it's a string property
+                    var stringValue = attr.DefaultStringValue;
+                    if (!string.IsNullOrEmpty(envValue))
                     {
-                        envValue = attr.DefaultStringValue;
+                        stringValue = envValue;
                     }
-                    prop.SetValue(instance, envValue);
+                    prop.SetValue(instance, stringValue);
                 }
             }
         }
-
         return instance;
     }
 }

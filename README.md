@@ -1,7 +1,6 @@
 - [EnvConfig](#envconfig)
     - [Installation](#installation)
     - [Usage](#usage)
-    - [Features](#features)
     - [TODO](#todo)
     - [Contributing](#contributing)
 
@@ -26,30 +25,34 @@ Example:
 public class MyConfig
 {
     [EnvVar("API_ENDPOINT", "https://default.api")]
-    public string? ApiEndpoint { get; set; }
+    public string? API_ENDPOINT { get; set; }
 
     [EnvVar("RETRY_COUNT", 3)]
-    public double RetryCount { get; set; }
+    public int? RETRY_COUNT { get; set; }
+
+    [EnvVar("MY_BOOL", true)]
+    public bool? MY_BOOL { get; set; }
+
+    [EnvVar("MY_BOOL_2", false)]
+    public bool? MY_BOOL_2 { get; set; }
+
+    [EnvVar("MY_DOUBLE", 0.123)]
+    public double? MY_DOUBLE { get; set; }
 }
+
 
 public class Program
 {
     public static void Main()
     {
         var config = EnvConfig.Load<MyConfig>();
-        Console.WriteLine($"API_ENDPOINT: {config.ApiEndpoint}");
-        Console.WriteLine($"RETRY_COUNT: {config.RetryCount}");
+        Console.WriteLine($"API_ENDPOINT: {config.API_ENDPOINT}");
+        Console.WriteLine($"RETRY_COUNT: {config.RETRY_COUNT}");
     }
 }
 ```
-## Features
-- String defaults: Provide a default string value.
-- Boolean defaults: Use true or false for booleans.
-- Numeric defaults: Supply a numeric default, like double.
-- Override with environment variables: If set, the environment value overrides the default.
 
 ## TODO
-- [ ] Add support for numeric types (int, float, etc.)
 - [ ] Publish to NuGet
 
 
