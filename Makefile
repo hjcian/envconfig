@@ -1,3 +1,5 @@
+.PHONY: pack push install-from-local-pack run-example-app
+
 test:
 	dotnet test EnvConfig --logger "console;verbosity=detailed"
 
