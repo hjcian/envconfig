@@ -9,9 +9,10 @@ pack:
 .EXPORT_ALL_VARIABLES:
 # NUGET_API_KEY ?= $(shell test -f .nuget_api_key && cat .nuget_api_key) # for local development
 # NUGET_API_KEY ?= $(NUGET_API_KEY_ENV) # for CI pipeline override
-NUGET_API_KEY:=
+NUGET_API_KEY ?=
 
 push:
+    @echo "Using API Key: $(if $(NUGET_API_KEY),有值,沒有值)"
 	dotnet nuget push \
 	EnvConfig/bin/Release/CS.EnvConfig.0.0.2.nupkg \
 	--source nuget.org \
