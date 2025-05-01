@@ -12,12 +12,16 @@
 ## Installation
 
 ```bash
-dotnet add package EnvConfig
+# Install the latest version from NuGet
+dotnet add package CS.EnvConfig
+# Install the specific version
+dotnet add package CS.EnvConfig --version 0.0.2
 ```
 
 ## Usage
-1. Create a configuration class with properties annotated using [EnvVar].
-2. Use EnvConfig.Load<YourConfig>() to populate those properties from environment variables if available; otherwise default values are used.
+
+1. Create a configuration class with properties annotated using `[EnvVar]`.
+2. Use `EnvConfigLoader.Load<YourConfig>()` to populate those properties from environment variables if available; otherwise default values are used.
 
 Example:
 
@@ -45,15 +49,18 @@ public class Program
 {
     public static void Main()
     {
-        var config = EnvConfig.Load<MyConfig>();
+        var config = EnvConfigLoader.Load<MyConfig>();
         Console.WriteLine($"API_ENDPOINT: {config.API_ENDPOINT}");
         Console.WriteLine($"RETRY_COUNT: {config.RETRY_COUNT}");
     }
 }
 ```
 
+See the [example app](./ExampleApp/) for a complete example of how to use the library, or the test cases in the [EnvConfig/EnvConfig_test.cs](./EnvConfig/EnvConfig_test.cs).
+
+
 ## TODO
-- [ ] Publish to NuGet
+- [ ] Create a pipeline to publish new version to public NuGet.
 
 
 ## Contributing

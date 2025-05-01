@@ -5,10 +5,16 @@
     <RootNamespace>EnvConfig</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageId>CS.EnvConfig</PackageId>
+    <Version>0.0.2</Version>
+    <Authors>Max Cian</Authors>
+    <Description>EnvConfig is a library for parsing environment variables in .NET applications.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/hjcian/envconfig</PackageProjectUrl>
+    <IsPackable>true</IsPackable>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
 
-    <IsPackable>false</IsPackable>
-    <IsTestProject>true</IsTestProject>
-    <StartupObject>EnvConfig.Program</StartupObject>
+    <!-- <StartupObject>EnvConfig.Program</StartupObject> -->
 
   </PropertyGroup>
 
@@ -22,6 +28,10 @@
 
   <ItemGroup>
     <Using Include="NUnit.Framework" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="" />
   </ItemGroup>
 
 </Project>

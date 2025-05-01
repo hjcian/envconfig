@@ -38,7 +38,7 @@ public sealed class EnvVarAttribute : Attribute
 }
 
 
-public class EnvConfig
+public class EnvConfigLoader
 {
     public static T Load<T>() where T : new()
     {
@@ -92,29 +92,5 @@ public class EnvConfig
             }
         }
         return instance;
-    }
-}
-
-public class MyEnvConfig
-{
-    [EnvVar("GRPC_PORT", "6300")]
-    public string? GRPC_PORT { get; set; }
-
-    [EnvVar("IMS_HOST", "inventory-management-service")]
-    public string? IMS_HOST { get; set; }
-
-    [EnvVar("COOL_FEATURE_ENABLED", true)]
-    public bool COOL_FEATURE_ENABLED { get; set; }
-}
-
-
-public class Program
-{
-    public static void Main(string[] args)
-    {
-        var config = EnvConfig.Load<MyEnvConfig>();
-        Console.WriteLine($"GRPC_PORT value: {config.GRPC_PORT}");
-        Console.WriteLine($"IMS_HOST value: {config.IMS_HOST}");
-        Console.WriteLine($"COOL_FEATURE_ENABLED value: {config.COOL_FEATURE_ENABLED}");
     }
 }
