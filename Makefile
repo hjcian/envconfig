@@ -4,7 +4,7 @@ run:
 	dotnet run --project EnvConfig
 
 test:
-	dotnet test EnvConfig
+	dotnet test EnvConfig --logger "console;verbosity=detailed"
 
 local:
 	dotnet run --project localtest
