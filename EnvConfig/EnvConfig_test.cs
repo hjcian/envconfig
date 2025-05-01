@@ -1,4 +1,4 @@
-namespace config_parser;
+namespace EnvConfig;
 
 public class TestEnvConfig
 {

@@ -2,13 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>config_parser</RootNamespace>
+    <RootNamespace>EnvConfig</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
-    <StartupObject>config_parser.Program</StartupObject>
+    <StartupObject>EnvConfig.Program</StartupObject>
 
   </PropertyGroup>
 

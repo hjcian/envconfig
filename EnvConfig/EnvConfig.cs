@@ -1,5 +1,5 @@
 
-namespace config_parser;
+namespace EnvConfig;
 using System;
 using System.Reflection;
 
