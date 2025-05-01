@@ -7,8 +7,9 @@ pack:
 
 
 .EXPORT_ALL_VARIABLES:
-NUGET_API_KEY ?= $(shell test -f .nuget_api_key && cat .nuget_api_key) # for local development
-NUGET_API_KEY ?= $(NUGET_API_KEY_ENV) # for CI pipeline override
+# NUGET_API_KEY ?= $(shell test -f .nuget_api_key && cat .nuget_api_key) # for local development
+# NUGET_API_KEY ?= $(NUGET_API_KEY_ENV) # for CI pipeline override
+NUGET_API_KEY:=
 
 push:
 	dotnet nuget push \
