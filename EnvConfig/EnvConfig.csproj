@@ -6,7 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>CS.EnvConfig</PackageId>
-    <Version>0.0.2</Version>
+    <Version>0.0.3</Version>
     <Authors>Max Cian</Authors>
     <Description>EnvConfig is a library for parsing environment variables in .NET applications.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
