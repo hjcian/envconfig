@@ -1,3 +1,4 @@
 localhost/
 bin/
 obj/
+.nuget_api_key

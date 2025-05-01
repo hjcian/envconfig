@@ -1,0 +1,39 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  build-test-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Run tests
+        run: make test
+
+      - name: Pack
+        run: make pack
+
+      - name: Check if EnvConfig.csproj changed
+        id: check_changes
+        uses: dorny/paths-filter@v2
+        with:
+          filters: |
+            csproj:
+              - 'EnvConfig/EnvConfig.csproj'
+
+      - name: Push to NuGet
+        if: steps.check_changes.outputs.csproj == 'true' && github.event_name == 'push'
+        env:
+          NUGET_API_KEY_ENV: ${{ secrets.NUGET_API_KEY }}
+        run: make push
