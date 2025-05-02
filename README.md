@@ -1,7 +1,6 @@
 - [EnvConfig](#envconfig)
     - [Installation](#installation)
     - [Usage](#usage)
-    - [TODO](#todo)
     - [Contributing](#contributing)
 
 
@@ -59,8 +58,6 @@ public class Program
 See the [example app](./ExampleApp/) for a complete example of how to use the library, or the test cases in the [EnvConfig/EnvConfig_test.cs](./EnvConfig/EnvConfig_test.cs).
 
 
-## TODO
-- [ ] Create a pipeline to publish new version to public NuGet.
 
 
 ## Contributing
